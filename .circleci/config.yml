@@ -31,3 +31,5 @@ workflows:
       - build
       - deploy:
           env: production
+          requires:
+            - build
