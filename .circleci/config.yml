@@ -14,3 +14,13 @@ jobs:
           name: "Build Application"
           command: |
             echo "Building in << pipeline.parameters.environment >> environment"
+  deploy:
+    parameters:
+      env:
+        type: string
+        default: "another"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "Deploying to << parameters.env >>"
+
