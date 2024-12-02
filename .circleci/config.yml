@@ -18,10 +18,11 @@ jobs:
     parameters:
       environment:
         type: string
+        default: "blab"
     docker:
       - image: circleci/node:latest
     steps:
-      - run: echo "Deploying to << parameters.environment >> environment"
+      - run: echo "Deploying to << pipeline.parameters.environment >> environment"
 
 workflows:
   version: 2
