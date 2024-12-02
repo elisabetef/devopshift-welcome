@@ -29,6 +29,6 @@ workflows:
   deploy-workflow:
     jobs:
       - build:
-          env: main
+          environment: main
       - deploy:
           env: production
