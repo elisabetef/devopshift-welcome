@@ -41,3 +41,5 @@ workflows:
  simple-build-notify:
    jobs:
      - build
+     - notify:
+       context: slack-secrets
