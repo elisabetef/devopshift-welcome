@@ -28,5 +28,6 @@ workflows:
   version: 2
   deploy-workflow:
     jobs:
-      - build:
+      - build
+      - deploy:
           env: production
