@@ -28,8 +28,7 @@ workflows:
   version: 2
   deploy-workflow:
     jobs:
-      - build:
-        environment: blabla
+      - build
       - deploy:
           env: production
           requires:
