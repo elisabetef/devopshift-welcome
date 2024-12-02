@@ -19,7 +19,7 @@ jobs:
       environment:
         type: string
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/node:latest
     steps:
       - run: echo "Deploying to << parameters.environment >> environment"
 
