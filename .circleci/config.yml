@@ -25,7 +25,7 @@ jobs:
           name: Lint Code
           command: |
             echo "Mock: Linting code for Node.js version << parameters.node_version >>..."
-            sleep 5
+            sleep 2
             echo "Linting completed."
 
   build:
@@ -84,10 +84,10 @@ jobs:
     steps:
       - checkout
       - docker/build:
-          image: myorg/myimage:<< parameters.node_version >>
+          image: elisabetef/nodeapp:node-<< parameters.node_version >>
           extra_build_args: '--build-arg=NODE_VERSION=<< parameters.node_version >>'
       - docker/push:
-          image: myorg/myimage:<< parameters.node_version >>
+          image: elisabetef/nodeapp:node-<< parameters.node_version >>
       - slack/notify:
           event: pass
           template: basic_success_1
