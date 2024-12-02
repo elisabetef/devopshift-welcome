@@ -16,13 +16,12 @@ jobs:
             echo "Building in << pipeline.parameters.environment >> environment"
   deploy:
     parameters:
-      env:
+      environment:
         type: string
-        default: "another"
     docker:
       - image: circleci/python:3.8
     steps:
-      - run: echo "Deploying to << pipeline.parameters.environment >> environment"
+      - run: echo "Deploying to << parameters.environment >> environment"
 
 workflows:
   version: 2
