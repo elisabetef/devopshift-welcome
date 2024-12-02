@@ -24,3 +24,11 @@ jobs:
     steps:
       - run: echo "Deploying to << parameters.env >>"
 
+workflows:
+  version: 2
+  deploy-workflow:
+    jobs:
+      - build:
+          env: main
+      - deploy:
+          env: production
