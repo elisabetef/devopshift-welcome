@@ -22,7 +22,7 @@ jobs:
     docker:
       - image: circleci/python:3.8
     steps:
-      - run: echo "Deploying to << parameters.env >>"
+      - run: echo "Deploying to << pipeline.parameters.environment >> environment"
 
 workflows:
   version: 2
@@ -30,6 +30,6 @@ workflows:
     jobs:
       - build
       - deploy:
-          env: production
+          environment: production
           requires:
             - build
