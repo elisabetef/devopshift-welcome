@@ -4,42 +4,41 @@ orb:
   slack: circleci/slack@5.1.1
 
 jobs:
- build:
-   docker:
-     - image: cimg/base:current
-   steps:
-     - checkout
-     - run:
-         name: mock build
-         command: |
-           echo "Starting build..."
-           echo "npm install"
-     - run:
-         name: Run Unit Tests
-         command: |
-           echo "Running tests on branch: $CIRCLE_BRANCH"
-           echo "npm test"
-     - slack/notify:
-         event: pass
-         templase: basic_success_1
-         custom: |
-           {
-             "blocks": [
-               {
-                 "type": "section",
-                 "text": {
-                   "type": "mrkdwn",
-                   "text": "*Mock Build Completed Successfully [please write your name]*"
-                 }
-               }
-             ]
-           }
+  build:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          name: mock build
+          command: |
+            echo "Starting build..."
+            echo "npm install"
+      - run:
+          name: Run Unit Tests
+          command: |
+            echo "Running tests on branch: $CIRCLE_BRANCH"
+            echo "npm test"
+      - slack/notify:
+          event: pass
+          templase: basic_success_1
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Mock Build Completed Successfully [please write your name]*"
+                  }
+                }
+              ]
+            }
 
 
 workflows:
- version: 2
- simple-build-notify:
-   jobs:
-     - build
-     - notify:
-       context: slack-secrets
+  version: 2
+  simple-build-notify:
+    jobs:
+      - build
+          context: slack-secrets
