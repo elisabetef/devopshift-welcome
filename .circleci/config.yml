@@ -40,5 +40,5 @@ workflows:
   version: 2
   simple-build-notify:
     jobs:
-      - build
-          context: slack-secrets
+      - build:
+        context: slack-secrets
