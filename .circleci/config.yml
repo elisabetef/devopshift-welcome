@@ -1,6 +1,6 @@
 version: 2.1
 
-orb:
+orbs:
   slack: circleci/slack@5.1.1
 
 jobs:
