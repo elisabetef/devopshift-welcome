@@ -22,6 +22,19 @@ jobs:
      - slack/notify:
          event: pass
          templase: basic_success_1
+         custom: |
+           {
+             "blocks": [
+               {
+                 "type": "section",
+                 "text": {
+                   "type": "mrkdwn",
+                   "text": "*Mock Build Completed Successfully [please write your name]*"
+                 }
+               }
+             ]
+           }
+
 
 workflows:
  version: 2
