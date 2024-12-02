@@ -29,6 +29,7 @@ workflows:
   deploy-workflow:
     jobs:
       - build
-      - deploy:
+      - deploy:      
+          environment: production
           requires:
             - build
